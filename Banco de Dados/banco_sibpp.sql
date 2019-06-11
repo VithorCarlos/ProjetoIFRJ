@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `sibpp`.`pedido_oracao` (
   `nome_membro` VARCHAR(35) NOT NULL,
   `email` VARCHAR(50) NULL,
   `telefone` CHAR(11) NOT NULL,
-  `desc_pedido` TEXT(250) NOT NULL,
+  `desc_pedido` TEXT NOT NULL,
   PRIMARY KEY (`cod_pedido`))
 ENGINE = InnoDB;
 
