@@ -21,7 +21,7 @@ USE `sibpp` ;
 CREATE TABLE IF NOT EXISTS `sibpp`.`pedido_oracao` (
   `cod_pedido` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `nome_membro` VARCHAR(35) NOT NULL,
-  `email` VARCHAR(50) NULL,
+  `email` VARCHAR(50) NOT NULL,
   `telefone` CHAR(11) NOT NULL,
   `desc_pedido` TEXT NOT NULL,
   PRIMARY KEY (`cod_pedido`))

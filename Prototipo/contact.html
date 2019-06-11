@@ -111,21 +111,14 @@
           </div>
         </div>
       </div>
-
     </div>
-
-
 
     <div class="site-section bg-light">
       <div class="container">
         <div class="row">
 
           <div class="col-md-12 col-lg-8 mb-5">
-
-
-
-            <form action="#" class="p-5 bg-white">
-
+            <form class="p-5 bg-white" action="cadastro_membro.php" method="POST">
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="font-weight-bold" for="nome_membro">Nome</label>
@@ -136,7 +129,7 @@
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="font-weight-bold" for="email">Email</label>
-                  <input type="email" id="email" name="email" class="form-control" placeholder="Endereço de e mail">
+                  <input type="email" id="email" name="email" class="form-control" placeholder="Endereço de email">
                 </div>
               </div>
 
@@ -152,14 +145,14 @@
               <div class="row form-group">
                 <div class="col-md-12">
                   <label class="font-weight-bold" for="desc_pedido">Mensagem</label>
-                  <textarea name="message" id="desc_pedido" name="desc_pedido" cols="30" rows="5" class="form-control"
+                  <textarea class="form-control" id="desc_pedido" name="desc_pedido" cols="30" rows="10"  maxlength="1000"
                     placeholder="Conte-nos, o que você está passando?"></textarea>
                 </div>
               </div>
 
               <div class="row form-group">
                 <div class="col-md-12">
-                  <input type="submit" value="Enviar Oração" name="registrar_oracao" class="btn btn-primary pill px-4 py-2">
+                  <input type="submit" name="registrar_oracao" class="btn btn-primary pill px-4 py-2" value="Enviar Oração" />
                 </div>
               </div>
             </form>
@@ -212,14 +205,11 @@
 
   <footer class="site-footer" style="background-image: url('images/hero_1.jpg');">
     <div class="container">
-
-
       <div class="row">
         <div class="col-md-4">
           <h3 class="footer-heading mb-4 text-white">Sobre-nós</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quos rem ullam, placeat amet.</p>
           <p><a href="about.html" class="btn btn-primary pill text-white px-4">Leia Mais
-
             </a></p>
         </div>
         <div class="col-md-6">
