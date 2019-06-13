@@ -18,7 +18,8 @@
   <link rel="stylesheet" href="css/animate.css">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
   <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
@@ -53,7 +54,7 @@
                 <h2 class="mb-0 site-logo"><a href="index.html">SIBPP</a></h2>
               </div>
               <div class="col-10">
-                <nav class="site-navigation text-right" role="navigation">
+                <nav class="fixed site-navigation text-right" role="navigation">
                   <div class="container">
                     <!-- d-lg-none -->
                     <div class="d-inline-block  ml-md-0 mr-auto py-3"><a href="#"
@@ -79,15 +80,50 @@
                               <li><a href="beliefs.html">Africa</a></li>
 
                             </ul>-->
-                          </li>
-
-                        </ul>
                       </li>
-                      <li><a href="events.html">Eventos</a></li>
-                      <li><a href="about.html">Sobre-nós</a></li>
-                      <li><a href="contact.html">Fale Conosco</a></li>
+
+                    </ul>
+                    </li>
+                    <li><a href="events.html">Eventos</a></li>
+                    <li><a href="about.html">Sobre-nós</a></li>
+                    <li><a href="contact.html">Fale Conosco</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#loginform">Login</a></li>
                     </ul>
                   </div>
+
+                  <!--Àrea de login-->
+                  <div class="modal fade" id="loginform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header text-center">
+                          <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body mx-3">
+                          <div class="md-form mb-5">
+                            <i class="fas fa-envelope prefix grey-text"></i>
+                            <input type="email" id="defaultForm-email" class="form-control validate">
+                            <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label>
+                          </div>
+
+                          <div class="md-form mb-4">
+                            <i class="fas fa-lock prefix grey-text"></i>
+                            <input type="password" id="defaultForm-pass" class="form-control validate">
+                            <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
+                          </div>
+
+                        </div>
+                        <div class="modal-footer d-flex justify-content-center">
+                          <button class="btn btn-default">Login</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--Final de login-->
+
                 </nav>
               </div>
             </div>
@@ -96,9 +132,7 @@
       </div>
     </div>
 
-
     <div class="slide-one-item home-slider owl-carousel">
-
       <div class="site-blocks-cover overlay" style="background-image: url(images/thumb1.jpg);" data-aos="fade"
         data-stellar-background-ratio="0.5">
         <div class="container">
@@ -118,7 +152,7 @@
           <div class="row align-items-center justify-content-center">
             <div class="col-md-7 text-center" data-aos="fade">
               <span class="caption mb-3"></span>
-              <h1 class="mb-4">O Senhor é o nosso pastor e nada nos faltará</h1>      
+              <h1 class="mb-4">O Senhor é o nosso pastor e nada nos faltará</h1>
             </div>
           </div>
         </div>
@@ -270,7 +304,7 @@
           <h2 class="heading mb-0"><a href="#">Vamos saborear alguns pastéis?</a></h2>
           <span class="mb-3 d-block post-date"></span>
           <div style="margin-top:11%;"></div>
-            <p><a href="#" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
+          <p><a href="#" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
         </div>
 
         <div class="media-with-text">
@@ -281,8 +315,8 @@
           </div>
           <h2 class="heading mb-0"><a href="#">Vamos curtir o nosso arraiá na presença do Senhor!</a></h2>
           <span class="mb-3 d-block post-date"></span>
-            <div style="margin-top:3%;"></div>
-            <p><a href="#" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
+          <div style="margin-top:3%;"></div>
+          <p><a href="#" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
         </div>
 
         <div class="media-with-text">
@@ -294,7 +328,7 @@
           <h2 class="heading mb-0"><a href="#">Traga um amigo para conhecer o Salvador.</a></h2>
           <span class="mb-3 d-block post-date"></span>
           <div></div>
-            <p><a href="#" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
+          <p><a href="#" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
         </div>
 
         <div class="media-with-text">
@@ -306,7 +340,7 @@
           <h2 class="heading mb-0"><a href="#">Vamos tirar um tempinho para Deus?</a></h2>
           <span class="mb-3 d-block post-date"></span>
           <div style="margin-top:11%;"></div>
-            <p><a href="#" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
+          <p><a href="#" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
         </div>
 
         <div class="media-with-text">
@@ -318,7 +352,7 @@
           <h2 class="heading mb-0"><a href="#">Mais um festival de pastéis, topam?</a></h2>
           <span class="mb-3 d-block post-date"></span>
           <div style="margin-top:11%;"></div>
-            <p><a href="#" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
+          <p><a href="#" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
         </div>
 
         <div class="media-with-text">
@@ -330,9 +364,9 @@
           <h2 class="heading mb-0"><a href="#">Venha participar de um rodízio com Deus.</a></h2>
           <span class="mb-3 d-block post-date"></span>
           <div style="margin-top:1%;"></div>
-            <p><a href="#" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
+          <p><a href="#" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
         </div>
-       
+
 
         <!-- <div class="media-with-text">
               <div class="img-border-sm mb-4">
@@ -477,22 +511,13 @@
   </footer>
   </div>
 
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/bootstrap-datepicker.min.js"></script>
-  <script src="js/aos.js"></script>
+
+  
 
 
-  <script src="js/mediaelement-and-player.min.js"></script>
 
-  <script src="js/main.js"></script>
+
+ 
 
 
   <script>
@@ -513,7 +538,20 @@
       }
     });
   </script>
-
+  
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/mediaelement-and-player.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
