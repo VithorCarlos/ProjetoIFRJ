@@ -5,8 +5,8 @@ function insert($membro, $email, $telefone, $descricao)
 {
     $link = conexao();
 
-    $query = "insert into pedido_oracao (nome_membro,email,telefone,desc_pedido)
-         values('{$membro}', ('{$email}'), ('{$telefone}'), '{$descricao}')";
+    $query = "insert into pedido_oracao (nome_pedido, email_pedido, telefone_pedido, desc_pedido)
+         values ('{$membro}', ('{$email}'), ('{$telefone}'), '{$descricao}')";
          
     mysqli_query($link, $query);
 

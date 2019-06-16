@@ -1,105 +1,68 @@
--- MySQL Workbench Forward Engineering
+DROP DATABASE IF EXISTS sibpp;
+CREATE DATABASE IF NOT EXISTS sibpp;
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
-
--- -----------------------------------------------------
--- Schema sibpp
--- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `sibpp` ;
-
--- -----------------------------------------------------
--- Schema sibpp
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `sibpp` DEFAULT CHARACTER SET utf8 ;
-USE `sibpp` ;
-
--- -----------------------------------------------------
--- Table `sibpp`.`pedido_oracao`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sibpp`.`pedido_oracao` (
-  `cod_pedido` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `nome_membro` VARCHAR(35) NOT NULL,
-  `email` VARCHAR(50) NOT NULL,
-  `telefone` CHAR(11) NOT NULL,
-  `desc_pedido` TEXT NOT NULL,
-  PRIMARY KEY (`cod_pedido`))
-ENGINE = InnoDB;
+USE sibpp;
 
 
--- -----------------------------------------------------
--- Table `sibpp`.`endereco`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sibpp`.`endereco` (
-  `cod_endereco` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `cep` VARCHAR(8) NOT NULL,
-  `estado` VARCHAR(2) NOT NULL,
-  `cidade` VARCHAR(50) NOT NULL,
-  `bairro` VARCHAR(20) NOT NULL,
-  `rua` VARCHAR(150) NOT NULL,
-  `complemento` VARCHAR(45) NULL,
-  PRIMARY KEY (`cod_endereco`))
-ENGINE = InnoDB;
+CREATE TABLE pedido_oracao ( 
+  cod_pedido INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  nome_pedido VARCHAR(20) NOT NULL,
+  email_pedido VARCHAR(50) NOT NULL,
+  telefone_pedido VARCHAR(15) NOT NULL,
+  desc_pedido TEXT NOT NULL,
+  PRIMARY KEY (cod_pedido)
+  )ENGINE = innodb;
 
 
--- -----------------------------------------------------
--- Table `sibpp`.`eventos`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sibpp`.`eventos` (
-  `cod_eventos` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `nome_evento` VARCHAR(45) NOT NULL,
-  `tipo` VARCHAR(50) NULL,
-  `data` DATE NOT NULL,
-  `hora` TIME(3) NULL,
-  `duracao` VARCHAR(30) NULL,
-  `descricao` VARCHAR(300) NOT NULL,
-  `endereco_cod_endereco` INT UNSIGNED NOT NULL,
-  PRIMARY KEY (`cod_eventos`),
-  INDEX `fk_eventos_endereco1_idx` (`endereco_cod_endereco` ASC),
-  CONSTRAINT `fk_eventos_endereco1`
-    FOREIGN KEY (`endereco_cod_endereco`)
-    REFERENCES `sibpp`.`endereco` (`cod_endereco`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+CREATE TABLE endereco ( 
+  cod_endereco INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  cep VARCHAR(8) NOT NULL,
+  estado VARCHAR(2) NOT NULL,
+  cidade VARCHAR(50) NOT NULL,
+  bairro VARCHAR(20) NOT NULL,
+  rua VARCHAR(150) NOT NULL,
+  complemento VARCHAR(45) NOT NULL,
+  PRIMARY KEY (cod_endereco)
+  )ENGINE = innodb;
 
 
--- -----------------------------------------------------
--- Table `sibpp`.`gestor`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `sibpp`.`gestor` (
-  `cod_administrador` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `nome_gestor` VARCHAR(45) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
-  `cpf` VARCHAR(45) NOT NULL,
-  `senha` VARCHAR(45) NOT NULL,
-  `telefone` VARCHAR(45) NOT NULL,
-  `eventos_cod_eventos` INT UNSIGNED NOT NULL,
-  `endereco_cod_endereco` INT UNSIGNED NOT NULL,
-  `pedido_oracao_cod_pedido` INT UNSIGNED NOT NULL,
-  PRIMARY KEY (`cod_administrador`),
-  INDEX `fk_gestor_eventos_idx` (`eventos_cod_eventos` ASC),
-  INDEX `fk_gestor_endereco1_idx` (`endereco_cod_endereco` ASC),
-  INDEX `fk_gestor_pedido_oracao1_idx` (`pedido_oracao_cod_pedido` ASC),
-  CONSTRAINT `fk_gestor_eventos`
-    FOREIGN KEY (`eventos_cod_eventos`)
-    REFERENCES `sibpp`.`eventos` (`cod_eventos`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_gestor_endereco1`
-    FOREIGN KEY (`endereco_cod_endereco`)
-    REFERENCES `sibpp`.`endereco` (`cod_endereco`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_gestor_pedido_oracao1`
-    FOREIGN KEY (`pedido_oracao_cod_pedido`)
-    REFERENCES `sibpp`.`pedido_oracao` (`cod_pedido`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+CREATE TABLE evento ( 
+  cod_evento INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  nome_evento VARCHAR(150) NOT NULL,
+  data_evento DATE NOT NULL,
+  hora_evento TIME NOT NULL,
+  desc_evento VARCHAR(200) NOT NULL,
+  PRIMARY KEY (cod_evento),
+  FK_Endereco INT UNSIGNED,
+  FOREIGN KEY Fk_Endereco (Fk_Endereco) REFERENCES endereco (cod_endereco) ON UPDATE CASCADE ON DELETE RESTRICT
+  )ENGINE = innodb;
 
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+CREATE TABLE membro (
+  cod_membro INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  nome_membro VARCHAR(20) NOT NULL,
+  email_membro VARCHAR(50) NOT NULL,
+  cpf_membro VARCHAR(11) NOT NULL,
+  senha_membro VARCHAR(15) NOT NULL,
+  telefone_membro VARCHAR (15) NOT NULL,
+  PRIMARY KEY (cod_membro),
+  Fk_Evento_2 INT UNSIGNED,
+  Fk_Endereco_2 INT UNSIGNED,
+  FOREIGN KEY Fk_Evento_2 (Fk_Evento_2) REFERENCES evento (cod_evento) ON UPDATE CASCADE ON DELETE RESTRICT,
+  FOREIGN KEY Fk_Endereco_2 (Fk_Endereco_2) REFERENCES endereco (cod_endereco) ON UPDATE CASCADE ON DELETE RESTRICT
+  ) ENGINE = innodb;
+
+
+CREATE TABLE administrador (
+  cod_administrador INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  nome_adm VARCHAR(20) NOT NULL,
+  email_adm VARCHAR(50) NOT NULL,
+  cpf_adm VARCHAR(11) NOT NULL,
+  senha_adm VARCHAR(15) NOT NULL,
+  telefone_adm VARCHAR (15) NOT NULL,
+  PRIMARY KEY (cod_administrador),
+  Fk_Evento INT UNSIGNED,
+  Fk_Membro INT UNSIGNED,
+  FOREIGN KEY Fk_Evento (Fk_Evento) REFERENCES evento (cod_evento) ON UPDATE CASCADE ON DELETE RESTRICT,
+  FOREIGN KEY Fk_Membro (Fk_Membro) REFERENCES membro (cod_membro) ON UPDATE CASCADE ON DELETE RESTRICT
+  ) ENGINE = innodb;
