@@ -71,7 +71,7 @@ if (!isset($_SESSION["login_adm"]) || !isset($_SESSION["senha_adm"])) {
 
                                         <ul class="site-menu js-clone-nav d-none">
                                             <li><a href="index.html">HOME</a></li>
-                                            <li><a href="cadastro_evento.html">Cadastrar Eventos</a></li>
+                                            <li><a href="cadastro_evento.php">Cadastrar Eventos</a></li>
                                             <li><a href="cadastro_membro.php">Cadastrar Membros</a></li>
                                             <li><a href="#">Visualizar Orações</a></li>
                                             <li><a href="#">Visualizar Eventos</a></li>

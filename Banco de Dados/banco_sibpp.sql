@@ -32,9 +32,13 @@ CREATE TABLE evento (
   data_evento DATE NOT NULL,
   hora_evento TIME NOT NULL,
   desc_evento VARCHAR(200) NOT NULL,
-  PRIMARY KEY (cod_evento),
-  FK_Endereco INT UNSIGNED,
-  FOREIGN KEY Fk_Endereco (Fk_Endereco) REFERENCES endereco (cod_endereco) ON UPDATE CASCADE ON DELETE RESTRICT
+  cep_evento VARCHAR(8) NOT NULL,
+  estado_evento VARCHAR(2) NOT NULL,
+  cidade_evento VARCHAR(50) NOT NULL,
+  bairro_evento VARCHAR(20) NOT NULL,
+  rua_evento VARCHAR(150) NOT NULL,
+  complemento_evento VARCHAR(45) NOT NULL,
+  PRIMARY KEY (cod_evento)
   )ENGINE = innodb;
 
 
@@ -47,9 +51,7 @@ CREATE TABLE membro (
   telefone_membro VARCHAR (15) NOT NULL,
   PRIMARY KEY (cod_membro),
   Fk_Evento_2 INT UNSIGNED,
-  Fk_Endereco_2 INT UNSIGNED,
-  FOREIGN KEY Fk_Evento_2 (Fk_Evento_2) REFERENCES evento (cod_evento) ON UPDATE CASCADE ON DELETE RESTRICT,
-  FOREIGN KEY Fk_Endereco_2 (Fk_Endereco_2) REFERENCES endereco (cod_endereco) ON UPDATE CASCADE ON DELETE RESTRICT
+  FOREIGN KEY Fk_Evento_2 (Fk_Evento_2) REFERENCES evento (cod_evento) ON UPDATE CASCADE ON DELETE RESTRICT
   ) ENGINE = innodb;
 
 

@@ -1,3 +1,6 @@
+<?php 
+include ('validarEvento.php'); 
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -32,7 +35,8 @@
 <body>
     <div class="container-contact100">
         <div class="wrap-contact100">
-            <form class="contact100-form validate-form" method="POST">
+            <form class="contact100-form validate-form" action="cadastro_evento.php" method="POST">
+                <?php session_destroy() ?>
                 <span class="contact100-form-title">
 					CADASTRO DE EVENTOS
 				</span>
@@ -43,6 +47,18 @@
                     <input id="nome_evento" class="input100" type="text" name="nome_evento" maxlength="50" placeholder="Nome do evento...">
                     <span class="focus-input100"></span>
                 </div>
+
+                <?php if (isset($_SESSION["evento_existente"])) : ?>
+                    <?php $evento_cadastrado = $_SESSION["evento_existente"]; ?>
+                    <span style="margin-left: 5%;
+                                margin-bottom: 2%;
+                                color: red;
+                                font-family: Poppins-Medium;
+                                font-size: 15px;
+                                display: block;">
+                        <?php echo $evento_cadastrado ?>
+                    </span>
+                <?php endif ?>
 
                 <div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
                     <label class="label-input100" for="data_evento">Data do Evento</label>
@@ -57,19 +73,19 @@
                 </div>
 
                 <div class="wrap-input200 validate-input" data-validate="Campo Obrigatório">
-                    <label class="label-input200" for="senha2">ENDEREÇO</label>
+                    <label class="label-input200">ENDEREÇO</label>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
                     <label class="label-input100" for="text">CEP</label>
-                    <input id="cep" class="input100" type="cep" name="cep" required pattern="\d{5}-?\d{3}" placeholder="CEP do evento...">
+                    <input id="cep_evento" class="input100" type="text" name="cep_evento" required pattern="\d{5}-?\d{3}" placeholder="CEP do evento...">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100">
                     <div class="label-input100">Estado</div>
                     <div>
-                        <select class="js-select2" name="estado">
+                        <select class="js-select2" name="estado_evento">
                             <option value="AC">Acre</option>
                             <option value="AL">Alagoas</option>
                             <option value="AP">Amapá</option>
@@ -105,26 +121,26 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
-                    <label class="label-input100" for="cidade">Cidade</label>
-                    <input id="cidade" class="input100" type="text" name="cidade" maxlength="50" placeholder="Cidade do evento...">
+                    <label class="label-input100" for="cidade_evento">Cidade</label>
+                    <input id="cidade_evento" class="input100" type="text" name="cidade_evento" maxlength="50" placeholder="Cidade do evento...">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
-                    <label class="label-input100" for="bairro">Bairro</label>
-                    <input id="bairro" class="input100" type="text" name="bairro" maxlength="25" placeholder="Bairro do evento...">
+                    <label class="label-input100" for="bairro_evento">Bairro</label>
+                    <input id="bairro_evento" class="input100" type="text" name="bairro_evento" maxlength="25" placeholder="Bairro do evento...">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
-                    <label class="label-input100" for="rua">Rua</label>
-                    <input id="rua" class="input100" type="text" name="rua" maxlength="100" placeholder="Rua do evento...">
+                    <label class="label-input100" for="rua_evento">Rua</label>
+                    <input id="rua_evento" class="input100" type="text" name="rua_evento" maxlength="100" placeholder="Rua do evento...">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
-                    <label class="label-input100" for="complemento">Complemento</label>
-                    <input id="complemento" class="input100" type="text" name="complemento" maxlength="50" placeholder="Complemento do evento...">
+                    <label class="label-input100" for="complemento_evento">Complemento</label>
+                    <input id="complemento_evento" class="input100" type="text" name="complemento_evento" maxlength="50" placeholder="Complemento do evento...">
                     <span class="focus-input100"></span>
                 </div>
 
@@ -134,6 +150,18 @@
                     <span class="focus-input100"></span>
                 </div>
 
+                <?php if (isset($_SESSION["descricao_existente"])) : ?>
+                    <?php $descricao_cadastrado = $_SESSION["descricao_existente"]; ?>
+                    <span style="margin-left: 5%;
+                                margin-bottom: 2%;
+                                color: red;
+                                font-family: Poppins-Medium;
+                                font-size: 15px;
+                                display: block;">
+                        <?php echo $descricao_cadastrado ?>
+                    </span>
+                <?php endif ?>
+
                 <!--<div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
                     <label class="label-input100" for="name">Endereço</label>
                     <input id="nome" class="input100" type="text" name="nome" placeholder="Digite seu nome...">
@@ -141,7 +169,7 @@
                 </div>-->
 
                 <div class="container-contact100-form-btn">
-                    <button class="contact100-form-btn">
+                    <button class="contact100-form-btn" name="registrar_evento">
 						Cadastrar
 					</button>
                 </div>

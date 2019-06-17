@@ -10,7 +10,7 @@
     <!-- Font-->
     <link rel="stylesheet" type="text/css" href="css/sourcesanspro-font.css">
     <!-- Main Style Css -->
-    <link rel="stylesheet" type="text/css" href="css/acesso_main.css" />
+    <link rel="stylesheet" type="text/css" href="css/acesso_main.css">
 </head>
 
 <body class="form-v8">
@@ -80,18 +80,18 @@
                                 <span class="border"></span>
                             </label>
                         </div>
-                        <div class="form-row-last">
-                            <input type="submit" class="register" value="Entrar">
-                        </div>
                         <?php
                         // verifica se a variavel session['invalido'] existe, se existir mostra o erro
                         if (isset($_SESSION["invalido"])) {
                             $dados_invalidos = $_SESSION["invalido"];
                             echo "<span class='invalido'
-                                            style='font-size: 16px; color:e65e5e; display:block;'>
+                                            style='font-size: 16px; color:#e65e5e; display:block;'>
                                                 $dados_invalidos</span>";
                         }
                         ?>
+                        <div class="form-row-last">
+                            <input type="submit" class="register" value="Entrar">
+                        </div>
                     </div>
                     <a class="retornar" href="index.html">Retornar</a>
                 </form>

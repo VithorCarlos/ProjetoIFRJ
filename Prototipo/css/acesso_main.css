@@ -106,7 +106,7 @@ body {
 
 .form-v8-content .form-row {
     width: 100%;
-    position: fixed;
+    position: relative;
 }
 
 .form-v8-content .form-row .form-row-inner {
@@ -131,7 +131,6 @@ body {
 
 .form-v8-content .form-row .form-row-inner .border {
     position: absolute;
-    bottom: 10%;
     left: 0;
     height: 1px;
     width: 100%;
