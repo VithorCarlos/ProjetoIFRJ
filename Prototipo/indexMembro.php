@@ -1,3 +1,13 @@
+<?php
+session_start();
+// Verifica se existe os dados da sessão de login 
+if (!isset($_SESSION["login_membro"]) && !isset($_SESSION["senha_membro"])) {
+    // Usuário não logado! Redireciona para a página de login 
+    header("Location: acessosistema.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -56,8 +66,7 @@
                             <div class="col-10">
                                 <nav class="fixed site-navigation text-right" role="navigation">
                                     <div class="container">
-                                        <div class="d-inline-block  ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle"><span
-                                                    class="icon-menu h3"></span></a></div>
+                                        <div class="d-inline-block  ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
 
                                         <ul class="site-menu js-clone-nav d-none">
                                             <li><a href="index.html">HOME</a></li>

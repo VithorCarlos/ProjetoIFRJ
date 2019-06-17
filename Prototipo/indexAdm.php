@@ -1,3 +1,13 @@
+<?php
+session_start();
+// Verifica se existe os dados da sessão de login 
+if (!isset($_SESSION["login_adm"]) || !isset($_SESSION["senha_adm"])) {
+    // Usuário não logado! Redireciona para a página de login 
+    header("Location: acessosistema.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -62,7 +72,7 @@
                                         <ul class="site-menu js-clone-nav d-none">
                                             <li><a href="index.html">HOME</a></li>
                                             <li><a href="cadastro_evento.html">Cadastrar Eventos</a></li>
-                                            <li><a href="cadastro_membro.html">Cadastrar Membros</a></li>
+                                            <li><a href="cadastro_membro.php">Cadastrar Membros</a></li>
                                             <li><a href="#">Visualizar Orações</a></li>
                                             <li><a href="#">Visualizar Eventos</a></li>
                                             <li><a href="#">Meu Perfil</a></li>

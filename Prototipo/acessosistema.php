@@ -1,9 +1,10 @@
+<?PHP session_start(); ?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
-    <title>Form-v8 by Colorlib</title>
+    <title>Acesso Administrativo</title>
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- Font-->
@@ -27,24 +28,34 @@
                         <button class="tablinks" onclick="openCity(event, 'membros')">MEMBROS</button>
                     </div>
                 </div>
-
-                <form class="form-detail" action="#" method="post">
+                <?php session_destroy(); ?>
+                <form class="form-detail" action="loginAdm.php" method="POST">
                     <div class="tabcontent" id="administrador">
                         <div class="form-row">
                             <label class="form-row-inner">
-								<input type="text" name="login_adm" id="login_adm" class="input-text" required>
-								<span class="label"><b>Login</b></span>
-		  						<span class="border"></span>
-							</label>
+                                <input type="text" name="login_adm" id="login_adm" class="input-text" required>
+                                <span class="label"><b>Login</b></span>
+                                <span class="border"></span>
+                            </label>
                         </div>
 
                         <div class="form-row">
                             <label class="form-row-inner">
-								<input type="password" name="senha_adm" id="senha_adm" class="input-text" required>
-								<span class="label"><b>Senha</b></span>
-								<span class="border"></span>
-							</label>
+                                <input type="password" name="senha_adm" id="senha_adm" class="input-text" required>
+                                <span class="label"><b>Senha</b></span>
+                                <span class="border"></span>
+                            </label>
                         </div>
+
+                        <?php
+                        // verifica se a variavel session['invalido'] existe, se existir mostra o erro
+                        if (isset($_SESSION["invalido"])) {
+                            $dados_invalidos = $_SESSION["invalido"];
+                            echo "<span class='invalido'
+                                            style='font-size: 16px; color:#e65e5e; display:block;'>
+                                                $dados_invalidos</span>";
+                        }
+                        ?>
 
                         <div class="form-row-last">
                             <input type="submit" class="register" value="Entrar">
@@ -52,27 +63,35 @@
                     </div>
                 </form>
 
-                <form class="form-detail" action="#" method="post">
+                <form class="form-detail" action="loginMembro.php" method="POST">
                     <div class="tabcontent" id="membros">
                         <div class="form-row">
                             <label class="form-row-inner">
-								<input type="text" name="login_adm" id="login_adm" class="input-text" required>
-								<span class="label"><b>Usuario</b></span>
-		  						<span class="border"></span>
-							</label>
+                                <input type="text" name="login_membro" id="login_adm" class="input-text" required>
+                                <span class="label"><b>Usuario</b></span>
+                                <span class="border"></span>
+                            </label>
                         </div>
 
                         <div class="form-row">
                             <label class="form-row-inner">
-								<input type="password" name="senha_adm" id="senha_adm" class="input-text" required>
-								<span class="label"><b>Senha</b></span>
-								<span class="border"></span>
-							</label>
+                                <input type="password" name="senha_membro" id="senha_adm" class="input-text" required>
+                                <span class="label"><b>Senha</b></span>
+                                <span class="border"></span>
+                            </label>
                         </div>
                         <div class="form-row-last">
                             <input type="submit" class="register" value="Entrar">
                         </div>
-
+                        <?php
+                        // verifica se a variavel session['invalido'] existe, se existir mostra o erro
+                        if (isset($_SESSION["invalido"])) {
+                            $dados_invalidos = $_SESSION["invalido"];
+                            echo "<span class='invalido'
+                                            style='font-size: 16px; color:e65e5e; display:block;'>
+                                                $dados_invalidos</span>";
+                        }
+                        ?>
                     </div>
                     <a class="retornar" href="index.html">Retornar</a>
                 </form>

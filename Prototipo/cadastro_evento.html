@@ -32,7 +32,7 @@
 <body>
     <div class="container-contact100">
         <div class="wrap-contact100">
-            <form class="contact100-form validate-form">
+            <form class="contact100-form validate-form" method="POST">
                 <span class="contact100-form-title">
 					CADASTRO DE EVENTOS
 				</span>
@@ -45,14 +45,14 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
-                    <label class="label-input100" for="data">Data do Evento</label>
-                    <input id="data" class="input100" type="date" name="data" placeholder="Data do evento...">
+                    <label class="label-input100" for="data_evento">Data do Evento</label>
+                    <input id="data_evento" class="input100" type="date" name="data_evento" placeholder="Data do evento...">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
-                    <label class="label-input100" for="hora">Hora do Evento</label>
-                    <input id="hora" class="input100" type="time" name="hora" placeholder="Hora do evento...">
+                    <label class="label-input100" for="hora_evento">Hora do Evento</label>
+                    <input id="hora_evento" class="input100" type="time" name="hora_evento" placeholder="Hora do evento...">
                     <span class="focus-input100"></span>
                 </div>
 
@@ -117,7 +117,7 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
-                    <label class="label-input100" for="bairro">Rua</label>
+                    <label class="label-input100" for="rua">Rua</label>
                     <input id="rua" class="input100" type="text" name="rua" maxlength="100" placeholder="Rua do evento...">
                     <span class="focus-input100"></span>
                 </div>
@@ -129,8 +129,8 @@
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Message is required">
-                    <label class="label-input100" for="message">Descrição</label>
-                    <textarea id="descricao_evento" class="input100" name="descricao_evento" placeholder="O que irá ocorrer neste evento?" maxlength="400"></textarea>
+                    <label class="label-input100" for="desc_evento">Descrição</label>
+                    <textarea id="desc_evento" class="input100" name="desc_evento" placeholder="O que irá ocorrer neste evento?" maxlength="400"></textarea>
                     <span class="focus-input100"></span>
                 </div>
 
