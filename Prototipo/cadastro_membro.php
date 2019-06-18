@@ -1,5 +1,5 @@
-<?php 
-include ('validarMembro.php');
+<?php
+include('validarMembro.php');
 ?>
 
 <!DOCTYPE html>
@@ -41,8 +41,8 @@ include ('validarMembro.php');
                 <?php session_destroy(); ?>
 
                 <span class="contact100-form-title">
-					CADASTRO DE MEMBROS
-				</span>
+                    CADASTRO DE MEMBROS
+                </span>
                 <div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
                     <label class="label-input100" for="nome_membro">Nome</label>
                     <input id="nome_membro" class="input100" type="text" name="nome_membro" placeholder="Digite seu nome...">
@@ -50,17 +50,17 @@ include ('validarMembro.php');
                 </div>
 
                 <?php if (isset($_SESSION["login_existente"])) : ?>
-                <?php $login_cadastrado = $_SESSION["login_existente"]; ?>
-                <span style="margin-left: 5%;
-                            margin-bottom: 2%;
-                            color: red;
-                            font-family: Poppins-Medium;
-                            font-size: 15px;
-                            display: block;">
-                    <?php echo $login_cadastrado ?>
-                </span>
-                 <?php endif ?>
-            
+                    <?php $login_cadastrado = $_SESSION["login_existente"]; ?>
+                    <span style="margin-left: 5%;
+                                margin-bottom: 2%;
+                                color: red;
+                                font-family: Poppins-Medium;
+                                font-size: 15px;
+                                display: block;">
+                        <?php echo $login_cadastrado ?>
+                    </span>
+                <?php endif ?>
+
                 <div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
                     <label class="label-input100" for="cpf_membro">CPF</label>
                     <input id="cpf_membro" class="input100" type="text" name="cpf_membro" placeholder="Digite seu CPF...">
@@ -68,16 +68,16 @@ include ('validarMembro.php');
                 </div>
 
                 <?php if (isset($_SESSION["cpf_existente"])) : ?>
-                        <?php $cpf_cadastrado = $_SESSION["cpf_existente"]; ?>
-                        <span style="margin-left: 5%;
-                                    margin-bottom: 2%;
-                                    color: red;
-                                    font-family: Poppins-Medium;
-                                    font-size: 15px;
-                                    display: block;">
-                            <?php echo $cpf_cadastrado ?>
-                        </span>
-                    <?php endif ?>
+                    <?php $cpf_cadastrado = $_SESSION["cpf_existente"]; ?>
+                    <span style="margin-left: 5%;
+                                        margin-bottom: 2%;
+                                        color: red;
+                                        font-family: Poppins-Medium;
+                                        font-size: 15px;
+                                        display: block;">
+                        <?php echo $cpf_cadastrado ?>
+                    </span>
+                <?php endif ?>
 
                 <div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
                     <label class="label-input100" for="senha_membro">Senha</label>
@@ -95,11 +95,11 @@ include ('validarMembro.php');
                 <?php if (isset($_SESSION["senhas_diferentes"])) : ?>
                     <?php $senhas_diferentes = $_SESSION["senhas_diferentes"]; ?>
                     <span style="margin-left: 5%;
-                                margin-bottom: 2%;
-                                color: red;
-                                font-family: Poppins-Medium;
-                                font-size: 15px;
-                                display: block;">
+                                    margin-bottom: 2%;
+                                    color: red;
+                                    font-family: Poppins-Medium;
+                                    font-size: 15px;
+                                    display: block;">
                         <?php echo $senhas_diferentes ?>
                     </span>
                 <?php endif ?>
@@ -113,37 +113,37 @@ include ('validarMembro.php');
                 <?php if (isset($_SESSION["email_existente"])) : ?>
                     <?php $email_cadastrado = $_SESSION["email_existente"]; ?>
                     <span style="margin-left: 5%;
-                                margin-bottom: 2%;
-                                color: red;
-                                font-family: Poppins-Medium;
-                                font-size: 15px;
-                                display: block;">
+                                    margin-bottom: 2%;
+                                    color: red;
+                                    font-family: Poppins-Medium;
+                                    font-size: 15px;
+                                    display: block;">
                         <?php echo $email_cadastrado ?>
                     </span>
                 <?php endif ?>
 
                 <div class="wrap-input100 validate-input" data-validate="Email válido requirido: ex@abc.xyz">
                     <label class="label-input100" for="telefone_membro">Telefone</label>
-                    <input id="telefone_membro" class="input100" type="text" name="telefone_membro" placeholder="Digite seu email...">
+                    <input id="telefone_membro" class="input100" type="text" name="telefone_membro" placeholder="Digite seu telefone...">
                     <span class="focus-input100"></span>
                 </div>
 
                 <?php if (isset($_SESSION["telefone_existente"])) : ?>
                     <?php $telefone_cadastrado = $_SESSION["telefone_existente"]; ?>
                     <span style="margin-left: 5%;
-                                margin-bottom: 2%;
-                                color: red;
-                                font-family: Poppins-Medium;
-                                font-size: 15px;
-                                display: block;">
+                                    margin-bottom: 2%;
+                                    color: red;
+                                    font-family: Poppins-Medium;
+                                    font-size: 15px;
+                                    display: block;">
                         <?php echo $telefone_cadastrado ?>
                     </span>
                 <?php endif ?>
 
                 <div class="container-contact100-form-btn">
                     <button class="contact100-form-btn" name="registrar_membro" type="submit">
-						Cadastrar
-					</button>
+                        Cadastrar
+                    </button>
                 </div>
                 <span><a class="spanclass" href="indexAdm.php">Cancelar Cadastro</a></span>
 

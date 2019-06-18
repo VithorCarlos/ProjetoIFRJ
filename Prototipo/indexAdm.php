@@ -66,8 +66,7 @@ if (!isset($_SESSION["login_adm"]) || !isset($_SESSION["senha_adm"])) {
                             <div class="col-10">
                                 <nav class="fixed site-navigation text-right" role="navigation">
                                     <div class="container">
-                                        <div class="d-inline-block  ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle"><span
-                                                    class="icon-menu h3"></span></a></div>
+                                        <div class="d-inline-block  ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
 
                                         <ul class="site-menu js-clone-nav d-none">
                                             <li><a href="index.html">HOME</a></li>

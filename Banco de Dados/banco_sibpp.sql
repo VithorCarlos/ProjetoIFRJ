@@ -14,18 +14,6 @@ CREATE TABLE pedido_oracao (
   )ENGINE = innodb;
 
 
-CREATE TABLE endereco ( 
-  cod_endereco INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  cep VARCHAR(8) NOT NULL,
-  estado VARCHAR(2) NOT NULL,
-  cidade VARCHAR(50) NOT NULL,
-  bairro VARCHAR(20) NOT NULL,
-  rua VARCHAR(150) NOT NULL,
-  complemento VARCHAR(45) NOT NULL,
-  PRIMARY KEY (cod_endereco)
-  )ENGINE = innodb;
-
-
 CREATE TABLE evento ( 
   cod_evento INT UNSIGNED NOT NULL AUTO_INCREMENT,
   nome_evento VARCHAR(150) NOT NULL,

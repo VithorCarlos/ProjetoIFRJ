@@ -173,9 +173,7 @@ include ('validarEvento.php');
 						Cadastrar
 					</button>
                 </div>
-                <span><a class="spanclass" href="indexAdm.html">Cancelar Cadastro</a></span>
-
-
+                <span><a class="spanclass" href="indexAdm.php">Cancelar Cadastro</a></span>
                 <!--<div class="contact100-form-social flex-c-m">
                     <a href="#" class="contact100-form-social-item flex-c-m bg1 m-r-5">
                         <i class="fa fa-facebook-f" aria-hidden="true"></i>
