@@ -7,10 +7,31 @@ function insert($membro, $email, $telefone, $descricao)
 
     $query = "insert into pedido_oracao (nome_pedido, email_pedido, telefone_pedido, desc_pedido)
          values ('{$membro}', ('{$email}'), ('{$telefone}'), '{$descricao}')";
-         
+
     mysqli_query($link, $query);
 
     return true;
 
     mysqli_close($link);
+}
+
+function ListarPedidos()
+{
+    $link = conexao();
+
+    $query = "select * from pedido_oracao";
+
+    $result = mysqli_query($link, $query);
+
+    $viewGeral = array();
+
+    while ($registro = mysqli_fetch_assoc($result)) {
+        array_push($viewGeral, $registro);
+    }
+
+    if (!$link) {
+        mysqli_close($link);
+    } else {
+        return $viewGeral;
+    }
 }
