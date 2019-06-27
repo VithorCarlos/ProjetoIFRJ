@@ -1,6 +1,11 @@
 <?php
-include "funcoes.php";
+if (!isset($_SESSION["login_adm"]) && !isset($_SESSION["senha_adm"])) {
+    // Usuário não logado! Redireciona para a página de login 
+    header("Location: acessosistema.php");
+    exit;
+}
 
+include "funcoes.php";
 $dados = ListarPedidos();
 ?>
 
@@ -24,7 +29,7 @@ $dados = ListarPedidos();
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/tables_main.css">
+    <link rel="stylesheet" type="text/css" href="css/tables.css">
     <link rel="stylesheet" type="text/css" href="css/table_util.css">
 
     <!--===============================================================================================-->
@@ -45,7 +50,6 @@ $dados = ListarPedidos();
                     <a class="dropdown-toggle btn btn-outline-dark" role="button" data-toggle="dropdown" href="#" style="margin-bottom: 2%;"><i class="fas fa-user-circle"></i> Meu Perfil</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="indexMembro.php">Página Inical</a>
-                        <a class="dropdown-item" href="#">Excluir Pedido</a>
                     </div>
                 </li>
             </ul>

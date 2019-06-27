@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (!isset($_SESSION["login_adm"]) && !isset($_SESSION["senha_adm"])) {
+    // Usuário não logado! Redireciona para a página de login 
+    header("Location: acessosistema.php");
+    exit;
+}
+
 include('validarMembro.php');
 
 ?>

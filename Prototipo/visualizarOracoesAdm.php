@@ -1,6 +1,11 @@
 <?php
-include "funcoes.php";
+if (!isset($_SESSION["login_adm"]) && !isset($_SESSION["senha_adm"])) {
+    // Usuário não logado! Redireciona para a página de login 
+    header("Location: acessosistema.php");
+    exit;
+}
 
+include "funcoes.php";
 $dados = ListarPedidos();
 ?>
 
@@ -24,7 +29,7 @@ $dados = ListarPedidos();
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/tables_main.css">
+    <link rel="stylesheet" type="text/css" href="css/tables.css">
     <link rel="stylesheet" type="text/css" href="css/table_util.css">
 
     <!--===============================================================================================-->
@@ -104,7 +109,7 @@ $dados = ListarPedidos();
                                 <?= $lista['desc_pedido'] ?>
                             </div>
                             <div class="cell cell2" data-title="Excluir">
-                                <a href="apagarPedidos.php?cod_pedido=<?= $lista['cod_pedido'] ?>"><i class="fas fa-trash-alt"></i></a>
+                                <a class="excluir" href="apagarPedidos.php?cod_pedido=<?= $lista['cod_pedido'] ?>"><i class="fas fa-trash-alt"></i></a>
                             </div>
                         </div>
                     <?php } ?>

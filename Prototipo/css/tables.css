@@ -420,3 +420,11 @@ iframe {
         width: 100% !important;
     }
 }
+
+.excluir{
+    color:rgb(199, 50, 50);
+}
+
+.excluir:hover{
+    color:rgb(77, 77, 77);
+}
