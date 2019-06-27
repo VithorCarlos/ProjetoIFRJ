@@ -24,7 +24,7 @@ $dados = ListarPedidos();
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/table.css">
+    <link rel="stylesheet" type="text/css" href="css/tables_main.css">
     <link rel="stylesheet" type="text/css" href="css/table_util.css">
 
     <!--===============================================================================================-->
@@ -45,7 +45,6 @@ $dados = ListarPedidos();
                     <a class="dropdown-toggle btn btn-outline-dark" role="button" data-toggle="dropdown" href="#" style="margin-bottom: 2%;"><i class="fas fa-user-circle"></i> Meu Perfil</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="indexAdm.php">Página Inical</a>
-                        <a class="dropdown-item" href="#">Excluir Pedido</a>
                     </div>
                 </li>
             </ul>
@@ -65,6 +64,9 @@ $dados = ListarPedidos();
                     <!--Cabeçalho-->
                     <div class="row header">
                         <div class="cell">
+                            ID
+                        </div>
+                        <div class="cell">
                             Nome
                         </div>
                         <div class="cell">
@@ -76,6 +78,9 @@ $dados = ListarPedidos();
                         <div class="cell">
                             Pedido
                         </div>
+                        <div class="cell">
+                            Ação
+                        </div>
                     </div>
 
                     <!--Final Cabeçalho-->
@@ -83,6 +88,9 @@ $dados = ListarPedidos();
                     <!--Conteúdo-->
                     <?php foreach ($dados as $lista) { ?>
                         <div class="row">
+                            <div class="cell cell2" data-title="ID">
+                                 <?= $lista['cod_pedido'] ?>
+                            </div>
                             <div class="cell cell2" data-title="Nome">
                                 <?= $lista['nome_pedido'] ?>
                             </div>
@@ -95,8 +103,12 @@ $dados = ListarPedidos();
                             <div class="cell cell2" data-title="Pedido">
                                 <?= $lista['desc_pedido'] ?>
                             </div>
+                            <div class="cell cell2" data-title="Excluir">
+                                <a href="apagarPedidos.php?cod_pedido=<?= $lista['cod_pedido'] ?>"><i class="fas fa-trash-alt"></i></a>
+                            </div>
                         </div>
                     <?php } ?>
+                    
                     <!--Final Conteúdo-->
                 </div>
             </div>

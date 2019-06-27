@@ -24,7 +24,7 @@ $dados = ListarPedidos();
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/table.css">
+    <link rel="stylesheet" type="text/css" href="css/tables_main.css">
     <link rel="stylesheet" type="text/css" href="css/table_util.css">
 
     <!--===============================================================================================-->
@@ -64,6 +64,9 @@ $dados = ListarPedidos();
                 <div class="table">
                     <!--Cabeçalho-->
                     <div class="row header">
+                    <div class="cell">
+                            ID
+                        </div>
                         <div class="cell">
                             Nome
                         </div>
@@ -76,6 +79,9 @@ $dados = ListarPedidos();
                         <div class="cell">
                             Pedido
                         </div>
+                        <div class="cell">
+                            Ação
+                        </div>
                     </div>
 
                     <!--Final Cabeçalho-->
@@ -83,6 +89,9 @@ $dados = ListarPedidos();
                     <!--Conteúdo-->
                     <?php foreach ($dados as $lista) { ?>
                         <div class="row">
+                            <div class="cell cell2" data-title="ID">
+                                 <?= $lista['cod_pedido'] ?>
+                            </div>
                             <div class="cell cell2" data-title="Nome">
                                 <?= $lista['nome_pedido'] ?>
                             </div>
@@ -94,6 +103,9 @@ $dados = ListarPedidos();
                             </div>
                             <div class="cell cell2" data-title="Pedido">
                                 <?= $lista['desc_pedido'] ?>
+                            </div>
+                            <div class="cell cell2" data-title="Excluir">
+                                <a href="apagarPedidos.php?cod_pedido=<?= $lista['cod_pedido'] ?>"><i class="fas fa-trash-alt"></i></a>
                             </div>
                         </div>
                     <?php } ?>

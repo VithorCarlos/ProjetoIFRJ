@@ -352,22 +352,32 @@ iframe {
 
 .row .cell:nth-child(1) {
     text-align: center;
-    width: 21%;
+    width: 8%;
 }
 
 .row .cell:nth-child(2) {
     text-align: center;
-    width: 12%;
+    width: 18%;
 }
 
 .row .cell:nth-child(3) {
     text-align: center;
-    width: 27%;
+    width: 12%;
 }
 
 .row .cell:nth-child(4) {
     text-align: center;
-    width: 10em;
+    width: 17%;
+}
+
+.row .cell:nth-child(5) {
+    text-align: center;
+    width: 35%;
+}
+
+.row .cell:nth-child(6) {
+    text-align: center;
+    width: 10%;
 }
 
 .table,

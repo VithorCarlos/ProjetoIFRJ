@@ -36,7 +36,7 @@ include ('validarEvento.php');
     <div class="container-contact100">
         <div class="wrap-contact100">
             <form class="contact100-form validate-form" action="cadastro_evento.php" method="POST">
-                <?php session_destroy() ?>
+               
                 <span class="contact100-form-title">
 					CADASTRO DE EVENTOS
 				</span>

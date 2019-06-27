@@ -35,3 +35,15 @@ function ListarPedidos()
         return $viewGeral;
     }
 }
+
+function apagar($cod_pedido) {
+    $link = conexao();
+
+    $query = "delete from pedido_oracao where cod_pedido = '{$cod_pedido}'";
+
+    mysqli_query($link, $query);
+
+    if(!$link) {
+      mysqli_close($link);
+    }
+  }

@@ -70,9 +70,8 @@ if (!isset($_SESSION["login_membro"]) && !isset($_SESSION["senha_membro"])) {
 
                                         <ul class="site-menu js-clone-nav d-none">
                                             <li><a href="index.html">HOME</a></li>
-                                            <li><a href="cadastro_evento.php">Cadastrar Eventos</a></li>
+                                            <li><a href="cadastro_eventoM.php">Cadastrar Eventos</a></li>
                                             <li><a href="visualizarOracoesM.php">Visualizar Orações</a></li>
-                                            <li><a href="#">Meu Perfil</a></li>
                                             <li><a href="logout.php">Sair</a></li>
                                         </ul>
                                     </div>
