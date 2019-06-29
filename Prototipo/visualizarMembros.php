@@ -7,7 +7,7 @@ if (!isset($_SESSION["login_adm"]) && !isset($_SESSION["senha_adm"])) {
 }
 
 include "funcoes.php";
-$dados = ListarPedidos();
+$dados = ListarMembros();
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +30,7 @@ $dados = ListarPedidos();
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/tables.css">
+    <link rel="stylesheet" type="text/css" href="css/tableMembro.css">
     <link rel="stylesheet" type="text/css" href="css/table_util.css">
 
     <!--===============================================================================================-->
@@ -51,7 +51,7 @@ $dados = ListarPedidos();
                     <a class="dropdown-toggle btn btn-outline-dark" role="button" data-toggle="dropdown" href="#" style="margin-bottom: 2%;"><i class="fa fa-cogs" aria-hidden="true"></i> Ações</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="indexAdm.php">Página Inical</a>
-                        <a class="dropdown-item" href="visualizarMembros.php">Visualizar Membros</a>
+                        <a class="dropdown-item" href="visualizarOracoesAdm.php">Visualizar Orações</a>
                     </div>
                 </li>
             </ul>
@@ -77,13 +77,13 @@ $dados = ListarPedidos();
                             Nome
                         </div>
                         <div class="cell">
-                            Telefone
-                        </div>
-                        <div class="cell">
                             Email
                         </div>
                         <div class="cell">
-                            Pedido
+                            CPF
+                        </div>
+                        <div class="cell">
+                            Telefone
                         </div>
                         <div class="cell">
                             Ação
@@ -96,22 +96,22 @@ $dados = ListarPedidos();
                     <?php foreach ($dados as $lista) { ?>
                         <div class="row">
                             <div class="cell cell2" data-title="ID">
-                                <?= $lista['cod_pedido'] ?>
+                                <?= $lista['cod_membro'] ?>
                             </div>
                             <div class="cell cell2" data-title="Nome">
-                                <?= $lista['nome_pedido'] ?>
+                                <?= $lista['nome_membro'] ?>
                             </div>
                             <div class="cell cell2" data-title="Telefone">
-                                <?= $lista['telefone_pedido'] ?>
+                                <?= $lista['email_membro'] ?>
                             </div>
                             <div class="cell cell2" data-title="Email">
-                                <?= $lista['email_pedido'] ?>
+                                <?= $lista['cpf_membro'] ?>
                             </div>
                             <div class="cell cell2" data-title="Pedido">
-                                <?= $lista['desc_pedido'] ?>
+                                <?= $lista['telefone_membro'] ?>
                             </div>
                             <div class="cell cell2" data-title="Excluir">
-                                <a class="excluir" href="apagarPedidos.php?cod_pedido=<?= $lista['cod_pedido'] ?>"><i class="fas fa-trash-alt"></i></a>
+                                <a class="excluir" href="banirMembros.php?cod_membro=<?= $lista['cod_membro'] ?>"><i class="fas fa-trash-alt"></i></a>
                             </div>
                         </div>
                     <?php } ?>

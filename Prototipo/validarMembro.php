@@ -134,6 +134,6 @@ if (isset($_POST['registrar_membro'])) {
     values('{$nome_membro}', ('{$email_membro}'), ('{$cpf_membro}'), '{$senha_membro}', '{$telefone_membro}')";
     mysqli_query(conexao(), $query);
     $_SESSION['nome_membro'] = $nome_membro;
-    header('location: index.html');
+    header('location: indexAdm.php');
   }
 }

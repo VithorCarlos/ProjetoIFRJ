@@ -72,7 +72,7 @@ if (!isset($_SESSION["login_adm"]) && !isset($_SESSION["senha_adm"])) {
                                             <li><a href="cadastro_evento.php">Cadastrar Eventos</a></li>
                                             <li><a href="cadastro_membro.php">Cadastrar Membros</a></li>
                                             <li><a href="visualizarOracoesAdm.php">Visualizar Orações</a></li>
-                                            <li><a href="#">Meu Perfil</a></li>
+                                            <li><a href="visualizarMembros.php">Visualizar Membros</a></li>
                                             <li><a href="logout.php">Sair</a></li>
                                         </ul>
                                     </div>
