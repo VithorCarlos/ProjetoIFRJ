@@ -123,27 +123,27 @@
                             <div class="row form-group">
                                 <div class="col-md-12 mb-3 mb-md-0">
                                     <label class="font-weight-bold" for="nome_pedido">Nome</label>
-                                    <input type="text" id="nome_pedido" name="nome_pedido" class="form-control" placeholder="Nome completo">
+                                    <input type="text" id="nome_pedido" name="nome_pedido" class="form-control" placeholder="Nome completo" maxlength="100" required>
                                 </div>
                             </div>
                             <div class="row form-group">
                                 <div class="col-md-12">
                                     <label class="font-weight-bold" for="email_pedido">Email</label>
-                                    <input type="email" id="email_pedido" name="email_pedido" class="form-control" placeholder="Endereço de email">
+                                    <input type="email" id="email_pedido" name="email_pedido" class="form-control" placeholder="Endereço de email" maxlength="100" required>
                                 </div>
                             </div>
 
                             <div class="row form-group">
                                 <div class="col-md-12 mb-3 mb-md-0">
                                     <label class="font-weight-bold" for="telefone_pedido">Contato</label>
-                                    <input type="text" id="telefone_pedido" name="telefone_pedido" class="form-control" placeholder="Telefone fixo ou celular">
+                                    <input type="text" id="telefone_pedido" name="telefone_pedido" class="form-control" onkeyup="somenteNumeros(this)" maxlength="12" placeholder="Telefone fixo ou celular" required>
                                 </div>
                             </div>
 
                             <div class="row form-group">
                                 <div class="col-md-12">
                                     <label class="font-weight-bold" for="desc_pedido">Mensagem</label>
-                                    <textarea class="form-control" id="desc_pedido" name="desc_pedido" cols="30" rows="8" maxlength="800" placeholder="Conte-nos, o que você está passando?"></textarea>
+                                    <textarea class="form-control" id="desc_pedido" name="desc_pedido" cols="30" rows="4" maxlength="200" placeholder="Conte-nos, o que você está passando?" required></textarea>
                                 </div>
                             </div>
 
@@ -282,6 +282,7 @@
             }
         });
     </script>
+    <script src="js/somenteNumeros.js"></script>
 
 </body>
 

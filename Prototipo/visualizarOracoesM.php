@@ -1,5 +1,6 @@
 <?php
-if (!isset($_SESSION["login_adm"]) && !isset($_SESSION["senha_adm"])) {
+session_start();
+if (!isset($_SESSION["login_membro"]) && !isset($_SESSION["senha_membro"])) {
     // Usuário não logado! Redireciona para a página de login 
     header("Location: acessosistema.php");
     exit;
@@ -47,7 +48,7 @@ $dados = ListarPedidos();
         <div class="collapse navbar-collapse" id="NavbarContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    <a class="dropdown-toggle btn btn-outline-dark" role="button" data-toggle="dropdown" href="#" style="margin-bottom: 2%;"><i class="fas fa-user-circle"></i> Meu Perfil</a>
+                    <a class="dropdown-toggle btn btn-outline-dark" role="button" data-toggle="dropdown" href="#" style="margin-bottom: 2%;"><i class="fa fa-cogs" aria-hidden="true"></i> Ações</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="indexMembro.php">Página Inical</a>
                     </div>
@@ -83,9 +84,6 @@ $dados = ListarPedidos();
                         <div class="cell">
                             Pedido
                         </div>
-                        <div class="cell">
-                            Ação
-                        </div>
                     </div>
 
                     <!--Final Cabeçalho-->
@@ -107,9 +105,6 @@ $dados = ListarPedidos();
                             </div>
                             <div class="cell cell2" data-title="Pedido">
                                 <?= $lista['desc_pedido'] ?>
-                            </div>
-                            <div class="cell cell2" data-title="Excluir">
-                                <a href="apagarPedidos.php?cod_pedido=<?= $lista['cod_pedido'] ?>"><i class="fas fa-trash-alt"></i></a>
                             </div>
                         </div>
                     <?php } ?>

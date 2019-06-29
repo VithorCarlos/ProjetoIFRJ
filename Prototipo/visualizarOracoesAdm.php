@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (!isset($_SESSION["login_adm"]) && !isset($_SESSION["senha_adm"])) {
     // Usuário não logado! Redireciona para a página de login 
     header("Location: acessosistema.php");
@@ -47,7 +48,7 @@ $dados = ListarPedidos();
         <div class="collapse navbar-collapse" id="NavbarContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
-                    <a class="dropdown-toggle btn btn-outline-dark" role="button" data-toggle="dropdown" href="#" style="margin-bottom: 2%;"><i class="fas fa-user-circle"></i> Meu Perfil</a>
+                    <a class="dropdown-toggle btn btn-outline-dark" role="button" data-toggle="dropdown" href="#" style="margin-bottom: 2%;"><i class="fa fa-cogs" aria-hidden="true"></i> Ações</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="indexAdm.php">Página Inical</a>
                     </div>
@@ -94,7 +95,7 @@ $dados = ListarPedidos();
                     <?php foreach ($dados as $lista) { ?>
                         <div class="row">
                             <div class="cell cell2" data-title="ID">
-                                 <?= $lista['cod_pedido'] ?>
+                                <?= $lista['cod_pedido'] ?>
                             </div>
                             <div class="cell cell2" data-title="Nome">
                                 <?= $lista['nome_pedido'] ?>
@@ -113,7 +114,7 @@ $dados = ListarPedidos();
                             </div>
                         </div>
                     <?php } ?>
-                    
+
                     <!--Final Conteúdo-->
                 </div>
             </div>
