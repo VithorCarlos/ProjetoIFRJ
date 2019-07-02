@@ -352,32 +352,39 @@ iframe {
 
 .row .cell:nth-child(1) {
     text-align: center;
-    width: 8%;
+    vertical-align: middle;
+    width: 20em;
 }
 
 .row .cell:nth-child(2) {
     text-align: center;
-    width: 18%;
+    vertical-align: middle;
+    width: 30em;
 }
 
 .row .cell:nth-child(3) {
     text-align: center;
-    width: 12%;
+    vertical-align: middle;
+    width: 20em;
 }
 
 .row .cell:nth-child(4) {
     text-align: center;
-    width: 17%;
+    vertical-align: middle;
+    width: 20em;
 }
 
 .row .cell:nth-child(5) {
     text-align: center;
-    width: 35%;
+    padding-left: 1%;
+    padding-right: 1%;
+    width: 80em;
 }
 
 .row .cell:nth-child(6) {
     text-align: center;
-    width: 10%;
+    vertical-align: middle;
+    width: 15em;
 }
 
 .table,

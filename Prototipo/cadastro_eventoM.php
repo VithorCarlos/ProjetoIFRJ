@@ -6,7 +6,7 @@ if (!isset($_SESSION["login_membro"]) && !isset($_SESSION["senha_membro"])) {
     header("Location: acessosistema.php");
     exit;
 }  
-include ('validarEvento.php'); 
+include ('validarEventoM.php'); 
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -42,7 +42,7 @@ include ('validarEvento.php');
 <body>
     <div class="container-contact100">
         <div class="wrap-contact100">
-            <form class="contact100-form validate-form" action="cadastro_evento.php" method="POST">
+            <form class="contact100-form validate-form" action="cadastro_eventoM.php" method="POST">
                
                 <span class="contact100-form-title">
 					CADASTRO DE EVENTOS
@@ -170,7 +170,7 @@ include ('validarEvento.php');
                 <?php endif ?>
 
                 <div class="container-contact100-form-btn">
-                    <button class="contact100-form-btn" name="registrar_evento">
+                    <button class="contact100-form-btn" name="registrar_eventoM">
 						Cadastrar
 					</button>
                 </div>

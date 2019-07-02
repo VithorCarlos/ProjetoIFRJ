@@ -18,7 +18,7 @@ $rua_evento = "";
 $complemento_evento = "";
 $desc_evento = "";
 
-if (isset($_POST['registrar_evento'])) {
+if (isset($_POST['registrar_eventoM'])) {
   //Receber os dados do formulário (input)
   $nome_evento = mysqli_real_escape_string(conexao(), $_POST['nome_evento']);
   $data_evento = mysqli_real_escape_string(conexao(), $_POST['data_evento']);
@@ -111,6 +111,6 @@ if (isset($_POST['registrar_evento'])) {
     values('{$nome_evento}', ('{$data_evento}'), ('{$hora_evento}'), '{$desc_evento}', '{$cep_evento}', '{$estado_evento}', '{$cidade_evento}', '{$bairro_evento}', '{$rua_evento}')";
     mysqli_query(conexao(), $query);
     $_SESSION['nome_evento'] = $nome_evento;
-    header('location: indexAdm.php');
+    header('location: indexMembro.php');
   }
 }
