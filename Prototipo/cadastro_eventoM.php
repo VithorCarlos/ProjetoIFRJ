@@ -42,7 +42,7 @@ include ('validarEventoM.php');
 <body>
     <div class="container-contact100">
         <div class="wrap-contact100">
-            <form class="contact100-form validate-form" action="cadastro_eventoM.php" method="POST">
+            <form class="contact100-form validate-form" action="cadastro_eventoM.php" method="POST" enctype="multipart/form-data">
                
                 <span class="contact100-form-title">
 					CADASTRO DE EVENTOS
@@ -50,8 +50,8 @@ include ('validarEventoM.php');
 
 
                 <div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
-                    <label class="label-input100" for="nome_evento">Nome do Evento</label>
-                    <input id="nome_evento" class="input100" type="text" name="nome_evento" maxlength="50" placeholder="Nome do evento...">
+                    <label class="label-input100" for="nome_evento">Título do Evento</label>
+                    <input id="nome_evento" class="input100" type="text" name="nome_evento" maxlength="150" placeholder="Título do Evento...">
                     <span class="focus-input100"></span>
                 </div>
 
@@ -76,6 +76,12 @@ include ('validarEventoM.php');
                 <div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
                     <label class="label-input100" for="hora_evento">Hora do Evento</label>
                     <input id="hora_evento" class="input100" type="time" name="hora_evento" placeholder="Hora do evento...">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
+                    <label class="label-input100" for="imagem_evento">Imagem do Evento</label>
+                    <input id="imagem_evento" class="" type="file" name="imagem_evento" style="font-size:15px; padding:12px;">
                     <span class="focus-input100"></span>
                 </div>
 
@@ -168,6 +174,12 @@ include ('validarEventoM.php');
                         <?php echo $descricao_cadastrado ?>
                     </span>
                 <?php endif ?>
+
+                <!--<div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
+                    <label class="label-input100" for="name">Endereço</label>
+                    <input id="nome" class="input100" type="text" name="nome" placeholder="Digite seu nome...">
+                    <span class="focus-input100"></span>
+                </div>-->
 
                 <div class="container-contact100-form-btn">
                     <button class="contact100-form-btn" name="registrar_eventoM">

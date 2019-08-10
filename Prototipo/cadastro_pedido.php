@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descricao = $_POST['desc_pedido'];
 
     if (insert($membro, $email, $telefone, $descricao)) {
-        header('location: index.html');
+        header('location: index.php');
     } else {
         echo "Não foi possível realizar o cadastro";
         die;

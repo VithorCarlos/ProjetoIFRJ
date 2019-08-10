@@ -48,7 +48,7 @@
                     <div class="py-1">
                         <div class="row align-items-center">
                             <div class="col-2">
-                                <h2 class="mb-0 site-logo"><a href="index.html">SIBPP</a></h2>
+                                <h2 class="mb-0 site-logo"><a href="index.php">SIBPP</a></h2>
                             </div>
                             <div class="col-10">
                                 <nav class="fixed site-navigation text-right" role="navigation">
@@ -58,7 +58,7 @@
                                         <!-- d-lg-block -->
                                         <ul class="site-menu js-clone-nav d-none">
                                             <li class="active">
-                                                <a href="index.html">HOME</a>
+                                                <a href="index.php">HOME</a>
                                             </li>
                                             <!--<li><a href="sermons.html">Sermons</a></li>-->
                                             <li>
@@ -66,12 +66,12 @@
                                                 <ul class="dropdown arrow-top">
                                             </li>
 
-                                            </ul>
-                                            </li>
-                                            <li><a href="events.html">Eventos</a></li>
-                                            <li><a href="about.html">Sobre-nós</a></li>
-                                            <li><a href="contact.html">Fale Conosco</a></li>
-                                            <li><a href="acessosistema.php">Login</a></li>
+                                        </ul>
+                                        </li>
+                                        <li><a href="events.php">Eventos</a></li>
+                                        <li><a href="about.html">Sobre-nós</a></li>
+                                        <li><a href="contact.html">Fale Conosco</a></li>
+                                        <li><a href="acessosistema.php">Login</a></li>
                                         </ul>
                                     </div>
                                 </nav>
@@ -153,7 +153,7 @@
                     <div class="img-border">
                         <a href="https://vimeo.com/340719616" class="popup-vimeo image-play">
                             <span class="icon-wrap">
-                <span class="icon icon-play"></span>
+                                <span class="icon icon-play"></span>
                             </span>
                             <img src="images/img_2.jpg" alt="" class="img-fluid">
                         </a>
@@ -166,8 +166,7 @@
                     <span class="d-block mb-3"></span>
                     <p class="h5 mb-2">Se ame mais, e guardai os mandamentos.</p>
                     <p class="mb-4">Deus ensina que temos que amar o próximo como se fosse a você mesmo. Pois isto é uma das coisas que ensinamos, o amor ao próximo, mas principalmente o amor de Deus. Mostramos o nosso amor a Ele também através de louvores e pregações.</p>
-                    <p><a href="https://vimeo.com/340719616" class="popup-vimeo text-uppercase">Assistir Vídeo<span
-                class="icon-arrow-right small"></span></a></p>
+                    <p><a href="https://vimeo.com/340719616" class="text-primary popup-vimeo text-uppercase">Assistir Vídeo<span class="icon-arrow-right small"></span></a></p>
                 </div>
             </div>
         </div>
@@ -184,9 +183,37 @@
                     <h2>Eventos</h2>
                 </div>
             </div>
-
-
             <div class="nonloop-block-15 owl-carousel">
+                <?php
+                include 'conexao.php';
+                $link = conexao();
+
+                $sql = "select *from evento";
+
+                if ($link) {
+                    if ($result = $link->query($sql)) {
+                        while ($row = $result->fetch_assoc()) {
+                            ?>
+                            <div class="media-with-text">
+                                <div class="img-border-sm mb-4">
+                                    <a href="events.php" class="popup-vimeo image-play">
+                                        <img src="images/<?= $row['imagem_evento']; ?>" alt="" class="img-fluid">
+                                    </a>
+                                </div>
+                                <h2 class="heading mb-0"><a href="events.php"><?= $row['nome_evento']; ?></a></h2>
+                                <span class="mb-3 d-block post-date"></span>
+                                <div style="margin-top:11%;"></div>
+                            </div>
+
+                        <?php
+                        }
+                    } else {
+                        echo "Erro ao executar o comando SQL";
+                    }
+                }
+                ?>
+            </div>
+            <!-- <div class="nonloop-block-15 owl-carousel">
                 <div class="media-with-text">
                     <div class="img-border-sm mb-4">
                         <a href="#" class="popup-vimeo image-play">
@@ -196,7 +223,7 @@
                     <h2 class="heading mb-0"><a href="#">Vamos saborear alguns pastéis?</a></h2>
                     <span class="mb-3 d-block post-date"></span>
                     <div style="margin-top:11%;"></div>
-                    <p><a href="events.html" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
+                    <p><a href="events.php" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
                 </div>
 
                 <div class="media-with-text">
@@ -208,43 +235,43 @@
                     <h2 class="heading mb-0"><a href="#">Vamos curtir o nosso arraiá na presença do Senhor!</a></h2>
                     <span class="mb-3 d-block post-date"></span>
                     <div style="margin-top:3%;"></div>
-                    <p><a href="events.html" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
+                    <p><a href="events.php" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
                 </div>
 
                 <div class="media-with-text">
                     <div class="img-border-sm mb-4">
-                        <a href="events.html" class="popup-vimeo image-play">
+                        <a href="events.php" class="popup-vimeo image-play">
                             <img src="images/eventoamigo.jpg" alt="" class="img-fluid">
                         </a>
                     </div>
                     <h2 class="heading mb-0"><a href="#">Traga um amigo para conhecer o Salvador.</a></h2>
                     <span class="mb-3 d-block post-date"></span>
                     <div></div>
-                    <p><a href="events.html" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
+                    <p><a href="events.php" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
                 </div>
 
                 <div class="media-with-text">
                     <div class="img-border-sm mb-4">
-                        <a href="events.html" class="popup-vimeo image-play">
+                        <a href="events.php" class="popup-vimeo image-play">
                             <img src="images/eventoluau.jpg" alt="" class="img-fluid">
                         </a>
                     </div>
                     <h2 class="heading mb-0"><a href="#">Vamos tirar um tempinho para Deus?</a></h2>
                     <span class="mb-3 d-block post-date"></span>
                     <div style="margin-top:11%;"></div>
-                    <p><a href="events.html" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
+                    <p><a href="events.php" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
                 </div>
 
                 <div class="media-with-text">
                     <div class="img-border-sm mb-4">
-                        <a href="events.html" class="popup-vimeo image-play">
+                        <a href="events.php" class="popup-vimeo image-play">
                             <img src="images/eventopastel2.jpeg" alt="" class="img-fluid">
                         </a>
                     </div>
                     <h2 class="heading mb-0"><a href="#">Mais um festival de pastéis, topam?</a></h2>
                     <span class="mb-3 d-block post-date"></span>
                     <div style="margin-top:11%;"></div>
-                    <p><a href="events.html" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
+                    <p><a href="events.php" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
                 </div>
 
                 <div class="media-with-text">
@@ -256,15 +283,11 @@
                     <h2 class="heading mb-0"><a href="#">Venha participar de um rodízio com Deus.</a></h2>
                     <span class="mb-3 d-block post-date"></span>
                     <div style="margin-top:1%;"></div>
-                    <p><a href="events.html" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
-                </div>
-
-            </div>
-
-            <div class="row">
-
-            </div>
+                    <p><a href="events.php" class="text-primary">Saiba mais <span class="icon-arrow-right small"></span></a></p>
+                </div>-->
         </div>
+
+    </div>
     </div>
 
 

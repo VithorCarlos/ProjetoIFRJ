@@ -93,7 +93,7 @@
                             <input type="submit" class="register" value="Entrar">
                         </div>
                     </div>
-                    <a class="retornar" href="index.html">Retornar</a>
+                    <a class="retornar" href="index.php">Retornar</a>
                 </form>
             </div>
         </div>

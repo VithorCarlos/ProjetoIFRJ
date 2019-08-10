@@ -1,5 +1,5 @@
 <?php
-include ('conexao.php');
+include('conexao.php');
 
 //Declarando as variáveis
 $errors = array(
@@ -30,6 +30,7 @@ if (isset($_POST['registrar_eventoM'])) {
   $rua_evento = mysqli_real_escape_string(conexao(), $_POST['rua_evento']);
   $complemento_evento = mysqli_real_escape_string(conexao(), $_POST['complemento_evento']);
   $desc_evento = mysqli_real_escape_string(conexao(), $_POST['desc_evento']);
+
 
   //Bloquear que dados vazios sejam inseridos.
   if (empty($nome_evento)) {
@@ -98,19 +99,49 @@ if (isset($_POST['registrar_eventoM'])) {
     }
   }
 
-//Para não permitir que o formulário seja enviado com erros.
+  //Para não permitir que o formulário seja enviado com erros.
   $row = mysqli_num_rows($errors);
 
   if ($row == false) {
-    header("location: cadastro_evento.php");
+    header("location: cadastro_eventoM.php");
   }
 
-  //Caso não ocorra nenhum erro, permita que os dados sejam inseridos no banco.
   if ($row == 0) {
-    $query = "insert into evento(nome_evento, data_evento, hora_evento, desc_evento, cep_evento, estado_evento, cidade_evento, bairro_evento, rua_evento)
-    values('{$nome_evento}', ('{$data_evento}'), ('{$hora_evento}'), '{$desc_evento}', '{$cep_evento}', '{$estado_evento}', '{$cidade_evento}', '{$bairro_evento}', '{$rua_evento}')";
-    mysqli_query(conexao(), $query);
-    $_SESSION['nome_evento'] = $nome_evento;
-    header('location: indexMembro.php');
+
+
+    $link = conexao(); //
+    // Alterando o tamanho máximo do arquivo para 5Megabytes
+    ini_set('upload_max_filesize','5MB');
+
+    // Pega o nome do aqruivo
+    $imagem_evento = $_FILES['imagem_evento']['name'];
+
+    // Define diretório e nome final do arquivo servidor
+    // strtolower coloca em minúsculo
+    $arqDestino = strtolower('C:/xampp/htdocs/ProjetoIFRJ/Prototipo/images/'.$imagem_evento);
+
+    // Pega o nome do arquivo temporário usado no servidor
+    $nome_temp = $_FILES['imagem_evento']['tmp_name'];
+
+    // Move arquivo temporário para o diretório e nome corretos
+    if (!move_uploaded_file($nome_temp, $arqDestino) ) {
+       // Erro ao mover arquivo
+       echo ("<b>Erro de upload do arquivo.</b>");
+    }
+    else {
+
+        $query = "insert into evento(nome_evento, data_evento, hora_evento, imagem_evento, desc_evento, cep_evento, estado_evento, cidade_evento, bairro_evento, rua_evento, complemento_evento)
+        values(?,?,?,?,?,?,?,?,?,?,?)";
+
+        if($prepare = $link->prepare($query)){
+            $prepare->bind_param('sssssisssss',$nome_evento, $data_evento, $hora_evento, $imagem_evento, $desc_evento, $cep_evento, $estado_evento, $cidade_evento, $bairro_evento, $rua_evento, $complemento_evento); 
+            if($prepare->execute()){
+             
+              $cadastrado_evento = "<script>alert('Evento cadastrado com Sucesso!');</script>";
+              $_SESSION['evento_cadastrado'] = $cadastrado_evento;
+              header ('location: indexMembro.php');  
+            }         
+        }
+    }
   }
 }

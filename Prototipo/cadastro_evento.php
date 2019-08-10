@@ -1,11 +1,11 @@
-<?php 
+<?php
 session_start();
 if (!isset($_SESSION["login_adm"]) && !isset($_SESSION["senha_adm"])) {
     // Usuário não logado! Redireciona para a página de login 
     header("Location: acessosistema.php");
     exit;
 }
-include ('validarEvento.php'); 
+include "validarEvento.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -39,29 +39,34 @@ include ('validarEvento.php');
 </head>
 
 <body>
+    <?php if (isset($_SESSION["falha_evento"])) : ?>
+        <?php $falha_evento = $_SESSION["falha_evento"]; ?>
+        <?php echo $falha_evento;
+        unset($_SESSION["falha_evento"]); ?>
+    <?php endif ?>
     <div class="container-contact100">
         <div class="wrap-contact100">
-            <form class="contact100-form validate-form" action="cadastro_evento.php" method="POST">
-               
-                <span class="contact100-form-title">
-					CADASTRO DE EVENTOS
-				</span>
 
+            <form class="contact100-form validate-form" action="#" method="POST" enctype="multipart/form-data">
+
+                <span class="contact100-form-title">
+                    CADASTRO DE EVENTOS
+                </span>
 
                 <div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
-                    <label class="label-input100" for="nome_evento">Nome do Evento</label>
-                    <input id="nome_evento" class="input100" type="text" name="nome_evento" maxlength="50" placeholder="Nome do evento...">
+                    <label class="label-input100" for="nome_evento">Título do Evento</label>
+                    <input id="nome_evento" class="input100" type="text" name="nome_evento" maxlength="150" placeholder="Título do Evento...">
                     <span class="focus-input100"></span>
                 </div>
 
                 <?php if (isset($_SESSION["evento_existente"])) : ?>
                     <?php $evento_cadastrado = $_SESSION["evento_existente"]; ?>
                     <span style="margin-left: 5%;
-                                margin-bottom: 2%;
-                                color: red;
-                                font-family: Poppins-Medium;
-                                font-size: 15px;
-                                display: block;">
+                                        margin-bottom: 2%;
+                                        color: red;
+                                        font-family: Poppins-Medium;
+                                        font-size: 15px;
+                                        display: block;">
                         <?php echo $evento_cadastrado ?>
                     </span>
                 <?php endif ?>
@@ -75,6 +80,12 @@ include ('validarEvento.php');
                 <div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
                     <label class="label-input100" for="hora_evento">Hora do Evento</label>
                     <input id="hora_evento" class="input100" type="time" name="hora_evento" placeholder="Hora do evento...">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Campo Obrigatório">
+                    <label class="label-input100" for="imagem_evento">Imagem do Evento</label>
+                    <input id="imagem_evento" class="" type="file" name="imagem_evento" style="font-size:15px; padding:12px;">
                     <span class="focus-input100"></span>
                 </div>
 
@@ -120,7 +131,7 @@ include ('validarEvento.php');
                             <option value="SE">Sergipe</option>
                             <option value="TO">Tocantins</option>
                             <option value="ES">Estrangeiro</option>
-						</select>
+                        </select>
                         <div class="dropDownSelect2"></div>
                     </div>
                     <span class="focus-input100"></span>
@@ -159,11 +170,11 @@ include ('validarEvento.php');
                 <?php if (isset($_SESSION["descricao_existente"])) : ?>
                     <?php $descricao_cadastrado = $_SESSION["descricao_existente"]; ?>
                     <span style="margin-left: 5%;
-                                margin-bottom: 2%;
-                                color: red;
-                                font-family: Poppins-Medium;
-                                font-size: 15px;
-                                display: block;">
+                                        margin-bottom: 2%;
+                                        color: red;
+                                        font-family: Poppins-Medium;
+                                        font-size: 15px;
+                                        display: block;">
                         <?php echo $descricao_cadastrado ?>
                     </span>
                 <?php endif ?>
@@ -176,8 +187,8 @@ include ('validarEvento.php');
 
                 <div class="container-contact100-form-btn">
                     <button class="contact100-form-btn" name="registrar_evento">
-						Cadastrar
-					</button>
+                        Cadastrar
+                    </button>
                 </div>
                 <span><a class="spanclass" href="indexAdm.php">Cancelar Cadastro</a></span>
                 <!--<div class="contact100-form-social flex-c-m">

@@ -53,6 +53,11 @@ if (!isset($_SESSION["login_adm"]) && !isset($_SESSION["senha_adm"])) {
         </div>
         <!-- .site-mobile-menu -->
 
+        <?php if (isset($_SESSION["evento_cadastrado"])) : ?>
+            <?php $cadastrado_evento = $_SESSION["evento_cadastrado"]; ?>
+            <?php echo $cadastrado_evento;
+            unset($_SESSION["evento_cadastrado"]); ?>
+        <?php endif ?>
 
         <div class="site-navbar-wrap js-site-navbar bg-white">
             <div class="container">
@@ -60,15 +65,16 @@ if (!isset($_SESSION["login_adm"]) && !isset($_SESSION["senha_adm"])) {
                     <div class="py-1">
                         <div class="row align-items-center">
                             <div class="col-2">
-                                <h2 class="mb-0 site-logo"><a href="index.html">SIBPP</a></h2>
+                                <h2 class="mb-0 site-logo"><a href="index.php">SIBPP</a></h2>
                             </div>
+
                             <div class="col-10">
                                 <nav class="fixed site-navigation text-right" role="navigation">
                                     <div class="container">
                                         <div class="d-inline-block  ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
 
                                         <ul class="site-menu js-clone-nav d-none">
-                                            <li><a href="index.html">HOME</a></li>
+                                            <li><a href="index.php">HOME</a></li>
                                             <li><a href="cadastro_evento.php">Cadastrar Eventos</a></li>
                                             <li><a href="cadastro_membro.php">Cadastrar Membros</a></li>
                                             <li><a href="visualizarOracoesAdm.php">Visualizar Orações</a></li>

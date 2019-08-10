@@ -50,18 +50,17 @@
           <div class="py-1">
             <div class="row align-items-center">
               <div class="col-2">
-                <h2 class="mb-0 site-logo"><a href="index.html">SIBPP</a></h2>
+                <h2 class="mb-0 site-logo"><a href="index.php">SIBPP</a></h2>
               </div>
               <div class="col-10">
                 <nav class="site-navigation text-right" role="navigation">
                   <div class="container">
                     <!-- d-lg-none -->
-                    <div class="d-inline-block  ml-md-0 mr-auto py-3"><a href="#"
-                        class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
+                    <div class="d-inline-block  ml-md-0 mr-auto py-3"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu h3"></span></a></div>
                     <!-- d-lg-block -->
                     <ul class="site-menu js-clone-nav d-none">
                       <li>
-                        <a href="index.html">Home</a>
+                        <a href="index.php">Home</a>
                       </li>
                       <!--<li><a href="sermons.html">Sermons</a></li>-->
                       <li>
@@ -83,7 +82,7 @@
 
                         </ul>
                       </li>
-                      <li class="active"><a href="events.html">Eventos</a></li>
+                      <li class="active"><a href="events.php">Eventos</a></li>
                       <li><a href="about.html">Sobre-nós</a></li>
                       <li><a href="contact.html">Fale Conosco</a></li>
                       <li><a href="acessosistema.php">Login</a></li>
@@ -100,8 +99,7 @@
 
     <div class="slide-one-item home-slider owl-carousel">
 
-      <div class="site-blocks-cover overlay" style="background-image: url(images/thumbevento.jpg);" data-aos="fade"
-        data-stellar-background-ratio="0.5">
+      <div class="site-blocks-cover overlay" style="background-image: url(images/thumbevento.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center">
             <div class="col-md-7 text-center" data-aos="fade">
@@ -119,7 +117,33 @@
     <div class="site-section">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 col-lg-4">
+
+          <?php
+          include 'conexao.php';
+          $link = conexao();
+
+          $sql = "select *from evento";
+
+          if ($link) {
+            if ($result = $link->query($sql)) {
+              while ($row = $result->fetch_assoc()) {
+                ?>
+                <div class="col-md-6 col-lg-4">
+                  <div class="church-service text-center">
+                    <a class="d-block mb-3 thumbnail"><img src="images/<?= $row['imagem_evento']; ?>" alt="Image" class="img-fluid" /></a>
+                    <h3 class="heading"></h3>
+                    <p class="mb-3"></p>
+                    <p><?= $row['desc_evento']; ?></p>
+                  </div>
+                </div>
+              <?php
+              }
+            } else {
+              echo "Erro ao executar o comando SQL";
+            }
+          }
+          ?>
+          <!--<div class="col-md-6 col-lg-4">
             <div class="church-service text-center">
               <a class="d-block mb-3 thumbnail"><img src="images/eventopastel.jpg" alt="Image"
                   class="img-fluid"></a>
@@ -129,7 +153,8 @@
                 a SIBPP está realizando o famoso Festival de Pastel!! É a partir das 17h, hein? Não percam!</p>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4">
+
+         <div class="col-md-6 col-lg-4">
             <div class="church-service text-center">
               <a class="d-block mb-3 thumbnail"><img src="images/eventofesta.jpg" alt="Image"
                   class="img-fluid"></a>
@@ -140,6 +165,7 @@
               </p>
             </div>
           </div>
+
           <div class="col-md-6 col-lg-4">
             <div class="church-service text-center">
               <a class="d-block mb-3 thumbnail"><img src="images/eventoluau.jpg" alt="Image"
@@ -183,12 +209,12 @@
                 amigos, tragam-nos para conhecer a casa do nosso Pai Celestial.</p>
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <div class="row mt-5">
-          <div class="col-md-12 text-center">
-            <div class="site-block-27">
-              <!--<ul>
+          <div class="row mt-5">
+            <div class="col-md-12 text-center">
+              <div class="site-block-27">
+                <!--<ul>
                 <li><a href="#">&lt;</a></li>
                 <li class="active"><span>1</span></li>
                 <li><a href="#">2</a></li>
@@ -197,16 +223,16 @@
                 <li><a href="#">5</a></li>
                 <li><a href="#">&gt;</a></li>
               </ul>-->
+              </div>
             </div>
           </div>
+
         </div>
-
       </div>
-    </div>
 
 
 
-    <!--<div class="py-5 bg-primary upcoming-events">
+      <!--<div class="py-5 bg-primary upcoming-events">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-6">
@@ -220,49 +246,49 @@
         </div>
         
       </div>-->
-  </div>
+    </div>
 
-  <div class="py-5 quick-contact-info">
-    <div class="container">
+    <div class="py-5 quick-contact-info">
+      <div class="container">
         <div class="row">
-            <div class="col-md-4 text-center">
-                <div>
-                    <span class="icon-room text-white h2 d-block"></span>
-                    <h2>Localização</h2>
-                    <p class="mb-0"> Porto da Pedra, São Gonçalo. <br> Rua Bernadino Gonçalvez, nº 51</p>
-                </div>
+          <div class="col-md-4 text-center">
+            <div>
+              <span class="icon-room text-white h2 d-block"></span>
+              <h2>Localização</h2>
+              <p class="mb-0"> Porto da Pedra, São Gonçalo. <br> Rua Bernadino Gonçalvez, nº 51</p>
             </div>
-            <div class="col-md-4 text-center">
-                <div>
-                    <span class="icon-clock-o text-white h2 d-block"></span>
-                    <h2>Cultos</h2>
-                    <p class="mb-0">Quarta - 19h às 20h <br> Domingo: 8h ás 11h <br> Domingo: 19h ás 20:30h</p>
-                </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <div>
+              <span class="icon-clock-o text-white h2 d-block"></span>
+              <h2>Cultos</h2>
+              <p class="mb-0">Quarta - 19h às 20h <br> Domingo: 8h ás 11h <br> Domingo: 19h ás 20:30h</p>
             </div>
-            <div class="col-md-4 text-center">
-                <div>
-                    <span class="icon-comments text-white h2 d-block"></span>
-                    <h2>Entre em Contato</h2>
-                    <p class="mb-0">sibemportodapedra@gmail.com <br>   cojasibapp@gmail.com <br> Telefone: 21 98376-3017 </p>
-                </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <div>
+              <span class="icon-comments text-white h2 d-block"></span>
+              <h2>Entre em Contato</h2>
+              <p class="mb-0">sibemportodapedra@gmail.com <br> cojasibapp@gmail.com <br> Telefone: 21 98376-3017 </p>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-  <footer class="site-footer" style="background-image: url('images/hero_1.jpg');">
-    <div class="container">
+    <footer class="site-footer" style="background-image: url('images/hero_1.jpg');">
+      <div class="container">
         <div class="row pt-1 mt-1 text-center">
-            <div class="col-md-12">
-                <p>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy; Todos os direitos reservados
-                </p>
-            </div>
+          <div class="col-md-12">
+            <p>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy; Todos os direitos reservados
+            </p>
+          </div>
         </div>
-    </div>
-    </div>
-</footer>
+      </div>
+  </div>
+  </footer>
   </div>
 
   <script src="js/jquery-3.3.1.min.js"></script>
@@ -284,15 +310,17 @@
 
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var mediaElements = document.querySelectorAll('video, audio'), total = mediaElements.length;
+    document.addEventListener('DOMContentLoaded', function() {
+      var mediaElements = document.querySelectorAll('video, audio'),
+        total = mediaElements.length;
 
       for (var i = 0; i < total; i++) {
         new MediaElementPlayer(mediaElements[i], {
           pluginPath: 'https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/',
           shimScriptAccess: 'always',
-          success: function () {
-            var target = document.body.querySelectorAll('.player'), targetTotal = target.length;
+          success: function() {
+            var target = document.body.querySelectorAll('.player'),
+              targetTotal = target.length;
             for (var j = 0; j < targetTotal; j++) {
               target[j].style.visibility = 'visible';
             }
